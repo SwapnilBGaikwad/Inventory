@@ -12,7 +12,7 @@ public class ProductController {
 
     @GetMapping("/")
     @ResponseBody
-    public Product addProduct(@RequestParam String name, Double price) {
+    public Product addProduct(@RequestParam String name, Double price) throws Exception {
         Product product = new Product(name, price);
         service.add(product);
         return product;

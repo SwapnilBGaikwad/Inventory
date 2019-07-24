@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 class KafkaSender {
-    @Autowired
     private Producer<Long, Product> producer;
+
+    @Autowired
+    public KafkaSender(Producer<Long, Product> producer) {
+        this.producer = producer;
+    }
 
     void send(Product product) throws Exception {
         long key = product.getName().length();
